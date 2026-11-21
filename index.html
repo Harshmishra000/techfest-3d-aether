@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Techfest 2026 — Enter the Aether</title>
+  <meta name="description" content="A 3D interactive journey through Techfest 2026, IIT Bombay: An Aetherial Renaissance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__ring"></div>
+    <p>Calibrating the aether</p>
+  </div>
+
+  <header class="hud">
+    <a class="brand" href="#top">TECHFEST <span>2026</span></a>
+    <nav class="hud__nav" aria-label="Chapters">
+      <a href="#ch-0" data-ch="0"><i></i><span>Origin</span></a>
+      <a href="#ch-1" data-ch="1"><i></i><span>Arena</span></a>
+      <a href="#ch-2" data-ch="2"><i></i><span>Ideas</span></a>
+      <a href="#ch-3" data-ch="3"><i></i><span>Expo</span></a>
+      <a href="#ch-4" data-ch="4"><i></i><span>Thirty</span></a>
+    </nav>
+    <a class="hud__cta" href="#arena">Events</a>
+  </header>
+
+  <main id="top">
+    <!-- Scroll story: the particle object morphs between five forms -->
+    <section class="story" id="story">
+      <div class="anchor" id="ch-0"></div><div class="anchor" id="ch-1"></div><div class="anchor" id="ch-2"></div><div class="anchor" id="ch-3"></div><div class="anchor" id="ch-4"></div>
+      <div class="story__sticky">
+        <article class="panel panel--hero is-active" data-panel="0">
+          <p class="kicker">IIT Bombay · 30th Edition</p>
+          <h1>An Aetherial<br><em>Renaissance</em></h1>
+          <p class="lede">Asia’s largest science and technology festival. Drag the orb, click to send a pulse, then scroll into the aether.</p>
+          <div class="scroll-cue"><span></span>Scroll</div>
+        </article>
+
+        <article class="panel" data-panel="1">
+          <p class="kicker">Chapter I · The Arena</p>
+          <h2>Where machines<br>meet their match.</h2>
+          <p class="lede">Robotics battles, line followers and hackathons. City zonals across India lead to one grand finale in Powai.</p>
+        </article>
+
+        <article class="panel panel--right" data-panel="2">
+          <p class="kicker">Chapter II · The Ideas</p>
+          <h2>Ideas, spliced<br>into the future.</h2>
+          <p class="lede">Lectures, workshops and summits with people who build what’s next, from AI to deep tech to policy.</p>
+        </article>
+
+        <article class="panel" data-panel="3">
+          <p class="kicker">Chapter III · The Expo</p>
+          <h2>A galaxy of<br>inventions.</h2>
+          <p class="lede">The Tech Expo pulls the newest machines, prototypes and wild experiments into one orbit.</p>
+        </article>
+
+        <article class="panel panel--final" data-panel="4">
+          <p class="kicker">Chapter IV · Thirty</p>
+          <h2>Thirty editions.<br><em>Three days.</em></h2>
+          <p class="date">16–18 December 2026 · IIT Bombay, Mumbai</p>
+          <div class="ctas">
+            <a class="btn" href="https://techfest.org" target="_blank" rel="noopener">Register at techfest.org</a>
+            <a class="btn btn--ghost" href="#arena">Explore events</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3D carousel -->
+    <section class="arena" id="arena">
+      <header class="arena__head">
+        <p class="kicker">Choose your arena</p>
+        <h2>Spin the ring.</h2>
+        <p class="lede">Drag, swipe or use the arrows. Hover a card to tilt it in 3D.</p>
+      </header>
+
+      <div class="ring" id="ring" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Techfest 2026 events">
+        <div class="ring__spin" id="ringSpin">
+          <article class="tile"><span class="tile__n">01</span><h3>ThetaShift</h3><p>Robotics run: six minutes to beat the course.</p><span class="tile__tag">Robotics</span></article>
+          <article class="tile"><span class="tile__n">02</span><h3>Meshmerize</h3><p>Line-follower bots that map a maze, then race it.</p><span class="tile__tag">Robotics</span></article>
+          <article class="tile"><span class="tile__n">03</span><h3>Perceptron</h3><p>An AI hackathon with the IIT Bombay–Optiver lab.</p><span class="tile__tag">AI</span></article>
+          <article class="tile"><span class="tile__n">04</span><h3>India @ 71/100</h3><p>Real solutions for underserved communities.</p><span class="tile__tag">Impact</span></article>
+          <article class="tile"><span class="tile__n">05</span><h3>Lectures</h3><p>Talks from leaders in science, tech and policy.</p><span class="tile__tag">Ideas</span></article>
+          <article class="tile"><span class="tile__n">06</span><h3>Tech Expo</h3><p>Prototypes and machines from around the world.</p><span class="tile__tag">Expo</span></article>
+          <article class="tile"><span class="tile__n">07</span><h3>Workshops</h3><p>Hands-on sessions, from deep learning to hardware.</p><span class="tile__tag">Learn</span></article>
+          <article class="tile"><span class="tile__n">08</span><h3>Zonals</h3><p>Qualify in your city, finish at IIT Bombay.</p><span class="tile__tag">Compete</span></article>
+        </div>
+      </div>
+      <div class="ring__ctrl">
+        <button class="arrow" id="prev" aria-label="Previous event">←</button>
+        <span class="ring__count" id="ringCount" aria-live="polite">01 / 08</span>
+        <button class="arrow" id="next" aria-label="Next event">→</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>TECHFEST 2026 · An Aetherial Renaissance</span>
+    <span>Fan-made 3D concept for the Techfest web challenge · Details at techfest.org</span>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
